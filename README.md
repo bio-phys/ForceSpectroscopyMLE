@@ -26,7 +26,7 @@ Users of older software versions may need to wrap the contents of the brackets w
 
 ### Importing data
 
-The rupture force data should be of the type `Array{Float64,2}`, where the first column contains the rupture forces `F` (in pN) and the second column the associated loading rates `dF` (in pN/s).  In principle, users can lump all their measured force spectra into a single file and, e.g., read it in as follows:
+The rupture force data should be of the type `Array{Float64,2}`, where the first column contains the rupture forces `F` (in *pN*) and the second column the associated loading rates `dF` (in *pN/s*).  In principle, users can lump all their measured force spectra into a single file and, e.g., read it in as follows:
 ```julia
 using DelimitedFiles
 
@@ -49,7 +49,27 @@ We can estimate the parameters `βΔG_u`, `x_u` and `k_0` of the DHS model using
 all_data = vcat(vcat(data...)...) # only necessary if 'data' is of the type Array{Array{Float64,2},1}
 [βΔG_u, x_u, k_0] = MLE_estimator(all_data,ν)
 ```
-The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  `MLE_estimator` has various optional arguments, most of which are inputs for the [optimizer](https://github.com/robertfeldt/BlackBoxOptim.jl) except for the absolute temperature `T` (in K):
+The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  `MLE_estimator` has various optional arguments, most of which are inputs for the [optimizer](https://github.com/robertfeldt/BlackBoxOptim.jl) except for the absolute temperature `T` (in *K*):
 ```julia
 MLE_estimator(all_data,ν,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0),msteps=100000,mode=:compact,psize=50,tint=60.0)
 ```
+The `MLE_errors` function provides an estimate of the parameter uncertainties:
+```julia
+[δβΔG_u, δx_u, δk_0] = MLE_errors(all_data,ν,N=100,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0),msteps=100000,mode=:silent,psize=50,tint=60.0)
+```
+with (almost) the same optional arguments as `MLE_estimator`:
+```julia
+MLE_errors(all_data,ν,N=100,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0),msteps=100000,mode=:silent,psize=50,tint=60.0)
+```
+We rely on bootstrapping to gauge the uncertainty of the estimates, by generating `N` new data sets from our sample of rupture forces and analyzing the results.  This can become rather sluggish for large `N`, so it is recommended to run the command `export JULIA_NUM_THREADS=n`, with `n` being the number of available (physical) cores, before launching Julia.  This speeds up the numerics significantly.  
+
+To check the number of available cores for threading, simply run
+```julia
+using Base.Threads; nthreads()
+```
+This should print the number `n` if the above-mentioned command was properly executed.  
+
+
+
+### Data trimming
+
