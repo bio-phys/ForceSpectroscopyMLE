@@ -46,6 +46,10 @@ The array `data` is then of the type `Array{Array{Float64,2},1}`.
 
 We can estimate the parameters `βΔG_u`, `x_u` and `k_0` of the DHS model using the `MLE_estimator` function:
 ```julia
-[βΔG_u, x_u, k_0] = MLE_estimator(data,ν)
+all_data = vcat(vcat(data...)...) # only necessary if 'data' is of the type Array{Array{Float64,2},1}
+[βΔG_u, x_u, k_0] = MLE_estimator(all_data,ν)
 ```
-The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  
+The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  `MLE_estimator` has various optional arguments, most of which are inputs for the [optimizer](https://github.com/robertfeldt/BlackBoxOptim.jl) except for the absolute temperature `T` (in K):
+```julia
+MLE_estimator(all_data,ν,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0),msteps=100000,mode=:compact,psize=50,tint=60.0)
+```
