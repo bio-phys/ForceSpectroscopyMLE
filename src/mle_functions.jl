@@ -49,7 +49,11 @@ function MLE_estimator(data, ν, T=295, βΔE_range=(0.1,100.0), Δx_b_range=(0.
         TraceMode = mode, 
         PopulationSize = psize, 
         TraceInterval = tint) # optimization in βΔE-Δx_b-space performed using BlackBoxOptim package
-    return vcat([ best_candidate(result), k_0(β,best_candidate(result)[1],best_candidate(result)[2],ν,data) ]...)
+    if round(ν,digits=1) == 1.0
+        return vcat([ best_candidate(result)[2], k_0(β,best_candidate(result)[1],best_candidate(result)[2],ν,data) ]...)
+    else
+        return vcat([ best_candidate(result), k_0(β,best_candidate(result)[1],best_candidate(result)[2],ν,data) ]...)
+    end
 end
 
 
