@@ -32,12 +32,20 @@ using DelimitedFiles
 
 data = readdlm(file_name)
 ```
-However, in order to make use of our data trimming protocol, we recommend keeping data measured at different pulling speeds in separate files (stored in the directory `rupture_forces`), which can be read in using our specialized function `read_data`:
+However, in order to make use of our data trimming protocol, we recommend keeping data measured at different pulling speeds in separate files (stored in the directory `rupture_forces`), which can be read in using our specialized function:
 ```julia
+using ForceSpectroscopyMLE
+
 data = read_data("./rupture_forces/")
 ```
+The array `data` is then of the type `Array{Array{Float64,2},1}`.  
 
 
 
 ### Parameter and error estimation
 
+We can estimate the parameters `βΔG_u`, `x_u` and `k_0` of the DHS model using the `MLE_estimator` function:
+```julia
+[βΔG_u, x_u, k_0] = MLE_estimator(data,ν)
+```
+The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model.  
