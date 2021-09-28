@@ -55,7 +55,7 @@ MLE_estimator(all_data,ν,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0)
 ```
 The `MLE_errors` function provides an estimate of the parameter uncertainties:
 ```julia
-[δβΔG_u, δx_u, δk_0] = MLE_errors(all_data,ν,N=100,T=295,βΔE_range=(0.1,100.0),Δx_b_range=(0.001,10.0),msteps=100000,mode=:silent,psize=50,tint=60.0)
+[δβΔG_u, δx_u, δk_0] = MLE_errors(all_data,ν)
 ```
 with (almost) the same optional arguments as `MLE_estimator`:
 ```julia
@@ -73,3 +73,12 @@ This should print the number `n` if the above-mentioned command was properly exe
 
 ### Data trimming
 
+The function `read_data` sorts the data sets in ascending order with respect to the rupture forces.  We can therefore use `reduce_data` to trim the last `i` datapoints from each data set, resulting in a reduced data set:
+```julia
+reduced_data = reduce_data(data,i)
+```
+For comparison, we can also randomly remove `i` datapoints from each data set:
+```julia
+randomly_reduced_data = random_reduce_data(data,i)
+```
+A more detailed example that systematically investigates the effect of data trimming on the parameter estimates can be found in [the examples directory](examples).  
