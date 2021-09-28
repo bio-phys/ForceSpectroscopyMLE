@@ -48,4 +48,4 @@ We can estimate the parameters `βΔG_u`, `x_u` and `k_0` of the DHS model using
 ```julia
 [βΔG_u, x_u, k_0] = MLE_estimator(data,ν)
 ```
-The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model.  
+The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  
