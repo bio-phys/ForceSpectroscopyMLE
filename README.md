@@ -26,7 +26,13 @@ Users of older software versions may need to wrap the contents of the brackets w
 
 ### Importing data
 
-The rupture force data should be of the type `Array{Float64,2}`, where the first column contains the rupture forces `F` and the second column the associated loading rates `\dot{F}`.  
+The rupture force data should be of the type `Array{Float64,2}`, where the first column contains the rupture forces `F` (in pN) and the second column the associated loading rates `dF` (in pN/s).  In principle, users can lump all their measured force spectra into a single file and, e.g., read it in as follows:
+```julia
+using DelimitedFiles
+
+data = readdlm(file_name)
+```
+However, in order to make use of our data trimming protocol, we recommend keeping data measured at different pulling speeds in separate files, which can be read in using our specialized function `read_data`.  
 
 
 
