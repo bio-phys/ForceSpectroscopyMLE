@@ -8,7 +8,7 @@ For more details on the theoretical framework, please refer to the associated pu
 The code makes use of the DHS model of forcible bond rupture, which was originally published in
 > O. K. Dudko, G. Hummer, and A. Szabo, "Intrinsic rates and activation free energies from single-molecule pulling experiments", *Physical Review Letters* **96**, 108101 (2006). https://doi.org/10.1103/PhysRevLett.96.108101
 
-Please cite the references above if you use ForceSpectroscopyMLE to analyze your data.  
+Please cite the references above if you use `ForceSpectroscopyMLE` to analyze your data.  
 
 
 
@@ -32,7 +32,10 @@ using DelimitedFiles
 
 data = readdlm(file_name)
 ```
-However, in order to make use of our data trimming protocol, we recommend keeping data measured at different pulling speeds in separate files, which can be read in using our specialized function `read_data`.  
+However, in order to make use of our data trimming protocol, we recommend keeping data measured at different pulling speeds in separate files (stored in the directory `rupture_forces`), which can be read in using our specialized function `read_data`:
+```julia
+data = read_data("./rupture_forces/")
+```
 
 
 
