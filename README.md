@@ -5,7 +5,7 @@ This package provides a robust framework to analyze rupture force data from sing
 For more details on the theoretical framework, please refer to the associated publication:
 > W. Cai, J. T. Bullerjahn, M. Lallemang, K. Kroy, B. N. Balzer, and T. Hugel, "Direction dependence of bond strength and polymer chain elasticity", submitted. 
 
-The code makes use of the DHS model of forcible bond rupture, which was originally published in
+The code makes use of the DHS model of forcible bond rupture, which was originally published in:
 > O. K. Dudko, G. Hummer, and A. Szabo, "Intrinsic rates and activation free energies from single-molecule pulling experiments", *Physical Review Letters* **96**, 108101 (2006). https://doi.org/10.1103/PhysRevLett.96.108101
 
 Please cite the references above if you use `ForceSpectroscopyMLE` to analyze your data.  
@@ -46,7 +46,7 @@ The array `data` is then of the type `Array{Array{Float64,2},1}`.
 
 We can estimate the parameters `βΔG_u`, `x_u` and `k_0` of the DHS model using the `MLE_estimator` function:
 ```julia
-all_data = vcat(vcat(data...)...) # only necessary if 'data' is of the type Array{Array{Float64,2},1}
+all_data = vcat(data...) # only necessary if 'data' is of the type Array{Array{Float64,2},1}
 [βΔG_u, x_u, k_0] = MLE_estimator(all_data,ν)
 ```
 The parameter `ν` can be set to `1/2` or `2/3` depending on the shape of the underlying free-energy landscape.  For `ν = 1` the DHS model reduces to the Bell-Evans model, which only depends on the parameters `x_u` and `k_0`.  `MLE_estimator` has various optional arguments, most of which are inputs for the [optimizer](https://github.com/robertfeldt/BlackBoxOptim.jl) except for the absolute temperature `T` (in *K*):
