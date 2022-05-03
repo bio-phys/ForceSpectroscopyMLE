@@ -14,6 +14,8 @@ Please cite the references above if you use `ForceSpectroscopyMLE` to analyze yo
 
 ## Installation
 
+The package is written in the open-source programming language [Julia](https://github.com/JuliaLang/julia), which can be downloaded from their [webpage](https://julialang.org/downloads/#download_julia).  
+
 Currently, the package is not in a registry.  It must therefore be added by specifying a URL to the repository:
 ```julia
 using Pkg; Pkg.add(url="https://github.com/bio-phys/ForceSpectroscopyMLE")
@@ -67,7 +69,7 @@ To check the number of available cores for threading, simply run
 ```julia
 using Base.Threads; nthreads()
 ```
-This should print the number `n` if the above-mentioned command was properly executed.  
+This should print the number `n` if the above-mentioned command was executed properly.  
 
 
 
