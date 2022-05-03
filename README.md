@@ -3,7 +3,7 @@
 This package provides a robust framework to analyze rupture force data from single-molecule force spectroscopy experiments.  It includes a systematic protocol for trimming unwanted outliers and an efficient maximum likelihood estimator, based on the Dudko-Hummer-Szabo (DHS) bond rupture model, to extract parameters characterizing the free-energy landscape of the bond and the force-free disassociation rate.  
 
 For more details on the theoretical framework, please refer to the associated publication:
-> W. Cai, J. T. Bullerjahn, M. Lallemang, K. Kroy, B. N. Balzer, and T. Hugel, "Direction dependence of bond strength and polymer chain elasticity", submitted. 
+> W. Cai, J. T. Bullerjahn, M. Lallemang, K. Kroy, B. N. Balzer, and T. Hugel, "Angle-dependent strength of a single chemical bond by stereographic force spectroscopy", *Chemical Science* (2022). https://doi.org/10.1039/D2SC01077A
 
 The code makes use of the DHS model of forcible bond rupture, which was originally published in:
 > O. K. Dudko, G. Hummer, and A. Szabo, "Intrinsic rates and activation free energies from single-molecule pulling experiments", *Physical Review Letters* **96**, 108101 (2006). https://doi.org/10.1103/PhysRevLett.96.108101
