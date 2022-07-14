@@ -20,7 +20,7 @@ Currently, the package is not in a registry.  It must therefore be added by spec
 ```julia
 using Pkg; Pkg.add(url="https://github.com/bio-phys/ForceSpectroscopyMLE")
 ```
-Users of older software versions may need to wrap the contents of the brackets with `PackageSpec()`.  
+Users of older versions of Julia may need to wrap the contents of the brackets with `PackageSpec()`.  
 
 
 
