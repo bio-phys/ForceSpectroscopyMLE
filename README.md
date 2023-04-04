@@ -3,7 +3,7 @@
 This package provides a robust framework to analyze rupture force data from single-molecule force spectroscopy experiments.  It includes a systematic protocol for trimming unwanted outliers and an efficient maximum likelihood estimator, based on the Dudko-Hummer-Szabo (DHS) bond rupture model, to extract parameters characterizing the free-energy landscape of the bond and the force-free disassociation rate.  
 
 For more details on the theoretical framework, please refer to the associated publication:
-> W. Cai, J. T. Bullerjahn, M. Lallemang, K. Kroy, B. N. Balzer, and T. Hugel, "Direction dependence of bond strength and polymer chain elasticity", submitted. 
+> W. Cai, J. T. Bullerjahn, M. Lallemang, K. Kroy, B. N. Balzer, and T. Hugel, "Angle-dependent strength of a single chemical bond by stereographic force spectroscopy", *Chemical Science* **13**, 5734-5740 (2022). https://doi.org/10.1039/D2SC01077A
 
 The code makes use of the DHS model of forcible bond rupture, which was originally published in:
 > O. K. Dudko, G. Hummer, and A. Szabo, "Intrinsic rates and activation free energies from single-molecule pulling experiments", *Physical Review Letters* **96**, 108101 (2006). https://doi.org/10.1103/PhysRevLett.96.108101
@@ -14,11 +14,13 @@ Please cite the references above if you use `ForceSpectroscopyMLE` to analyze yo
 
 ## Installation
 
+The package is written in the open-source programming language [Julia](https://github.com/JuliaLang/julia), which can be downloaded from their [webpage](https://julialang.org/downloads/#download_julia).  
+
 Currently, the package is not in a registry.  It must therefore be added by specifying a URL to the repository:
 ```julia
 using Pkg; Pkg.add(url="https://github.com/bio-phys/ForceSpectroscopyMLE")
 ```
-Users of older software versions may need to wrap the contents of the brackets with `PackageSpec()`.  
+Users of older versions of Julia may need to wrap the contents of the brackets with `PackageSpec()`.  
 
 
 
@@ -67,7 +69,7 @@ To check the number of available cores for threading, simply run
 ```julia
 using Base.Threads; nthreads()
 ```
-This should print the number `n` if the above-mentioned command was properly executed.  
+This should print the number `n` if the above-mentioned command was executed properly.  
 
 
 
