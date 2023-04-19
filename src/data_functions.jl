@@ -3,6 +3,7 @@ Each dataset is sorted in ascending order with respect to the rupture forces (fi
 
 function read_data(dir)
     files = readdir(dir)
+    files = filter(!startswith(".") ∘ basename, files)
     N = length(files)
     data = Array{Array{Float64,2},1}(undef, N)
     for i = 1 : N
@@ -15,6 +16,7 @@ end
 
 function read_data_unsorted(dir)
     files = readdir(dir)
+    files = filter(!startswith(".") ∘ basename, files)
     N = length(files)
     data = Array{Array{Float64,2},1}(undef, N)
     for i = 1 : N
