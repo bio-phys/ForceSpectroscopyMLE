@@ -18,7 +18,11 @@ function reduced_likelihood(β,βΔE,Δx_b,ν,data)
             term_2 -= 100000.0
         end
     end
-    return log(term_1) - term_2/N
+    if term_1 < 0.0 # this is to penalize pathological solutions, which lie outside the validity range of the DHS model
+        return 1e10
+    else
+        return log(term_1) - term_2/N
+    end
 end
 
 
