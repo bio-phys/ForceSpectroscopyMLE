@@ -1,0 +1,17 @@
+pages:
+    image:
+      name: pandoc/core
+      entrypoint: [""]
+    tags:
+        - docker
+    script:
+        - cd .binder_landing_page
+        - pandoc --metadata pagetitle="VantHoffFitting" -c pandoc.css -s index.md -o index.html
+        - cd ..
+        - mkdir public
+        - cp .binder_landing_page/* public
+    artifacts:
+        paths:
+            - public
+    only:
+        - main
