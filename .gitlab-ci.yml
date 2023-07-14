@@ -6,7 +6,7 @@ pages:
         - docker
     script:
         - cd .binder_landing_page
-        - pandoc --metadata pagetitle="VantHoffFitting" -c pandoc.css -s index.md -o index.html
+        - pandoc --metadata pagetitle="ForceSpectroscopyMLE" -c pandoc.css -s index.md -o index.html
         - cd ..
         - mkdir public
         - cp .binder_landing_page/* public
