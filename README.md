@@ -12,6 +12,16 @@ Please cite the references above if you use `ForceSpectroscopyMLE` to analyze yo
 
 
 
+## Try without installation
+
+Click this [link](https://jabuller.pages.mpcdf.de/forcespectroscopymle) to run the `pipeline_example.ipynb` notebook in a cloud environment.  
+
+You can either analyze the data sets found in `examples/mock_data/` or upload your own.  The interactive session is only temporary and files will be deleted after termination (File -> Shut Down).  
+
+**Important:** Please shut down JupyterLab properly after use via the drop-down menu (File -> Shut Down) to free resources for other users.  
+
+
+
 ## Installation
 
 The package is written in the open-source programming language [Julia](https://github.com/JuliaLang/julia), which can be downloaded from their [webpage](https://julialang.org/downloads/#download_julia).  
