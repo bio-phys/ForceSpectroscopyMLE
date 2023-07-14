@@ -32,6 +32,7 @@ export
 using Base.Threads
 using BlackBoxOptim
 using DelimitedFiles
+using Plots
 using ProgressMeter
 using SpecialFunctions
 using Statistics
