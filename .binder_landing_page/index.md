@@ -11,4 +11,4 @@ You can either analyze the data sets found in `examples/mock_data/` or upload yo
 
 ----
 
-[Link: Launch pipeline_example notebook on Binder!](https://notebooks.mpcdf.mpg.de/binder/v2/git/https%3A%2F%2Fgitlab.mpcdf.mpg.de%2Fjabuller%2Fforcespectroscopymle/HEAD?labpath=examples%2Fpipeline_example.ipynb)
+[Link: Launch pipeline_example notebook on Binder!](https://notebooks.mpcdf.mpg.de/binder/v2/git/https%3A%2F%2Fgitlab.mpcdf.mpg.de%2Fbio-phys%2Fforcespectroscopymle/HEAD?labpath=examples%2Fpipeline_example.ipynb)
