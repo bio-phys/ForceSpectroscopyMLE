@@ -14,7 +14,7 @@ Please cite the references above if you use `ForceSpectroscopyMLE` to analyze yo
 
 ## Try without installation
 
-Click this [link](https://jabuller.pages.mpcdf.de/forcespectroscopymle) to run the `pipeline_example.ipynb` notebook in a cloud environment.  
+Click this [link](https://bio-phys.pages.mpcdf.de/forcespectroscopymle) to run the `pipeline_example.ipynb` notebook in a cloud environment.  
 
 You can either analyze the data sets found in `examples/mock_data/` or upload your own.  The interactive session is only temporary and files will be deleted after termination (File -> Shut Down).  
 
